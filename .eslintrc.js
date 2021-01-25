@@ -1,7 +1,7 @@
 /*
  * @Author: Vincent
  * @Date: 2021-01-14 10:43:13
- * @LastEditTime: 2021-01-14 16:52:39
+ * @LastEditTime: 2021-01-25 14:49:20
  * @LastEditors: Vincent
  * @Description:
  */
@@ -257,6 +257,8 @@ module.exports = {
     'no-trailing-spaces': 0,
     // 不允许使用未定义的变量
     'no-undef': 2,
+    // 不允许匿名函数
+    'func-names': 'as-needed',
 
     // 关闭大括号内的换行符要求
     'object-curly-newline': 0,
