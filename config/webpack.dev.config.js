@@ -1,7 +1,7 @@
 /*
  * @Author: Vincent
  * @Date: 2021-01-11 13:49:11
- * @LastEditTime: 2021-01-25 14:49:29
+ * @LastEditTime: 2021-01-28 17:31:13
  * @LastEditors: Vincent
  * @Description:
  */
@@ -9,6 +9,7 @@ const path = require('path');
 const { merge } = require('webpack-merge');
 const baseConfig = require('./webpack.base.config');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const apiMocker = require('mocker-api');
 
 module.exports = merge(baseConfig, {
   devtool: 'cheap-module-source-map',
@@ -85,6 +86,9 @@ module.exports = merge(baseConfig, {
   // 本地运行
   devServer: {
     contentBase: path.resolve(__dirname, '../dist'),
+    before(app) {
+      apiMocker(app, path.resolve(__dirname, '../mock/index.js'));
+    },
   },
   // 解析
   resolve: {
